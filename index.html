@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Hi-Hat Roll Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section id="loginPage" class="login-page">
+  <div class="login-card">
+    <h1>Hi-Hat Roll Generator</h1>
+    <p>by VEGOCIA</p>
+
+    <input type="email" id="emailInput" placeholder="Ingresa tu correo">
+    <button id="loginBtn">Entrar</button>
+
+    <small id="loginMessage"></small>
+  </div>
+</section>
+
+ <main id="appPage" class="app hidden">
+    <header class="hero">
+      <div class="visualizer">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+
+      <div class="title-container">
+        <h1>Hi-Hat Roll Generator</h1>
+        <p>by VEGOCIA</p>
+      </div>
+
+      <div class="visualizer">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="controls">
+        <label class="file-label">
+          Cargar MIDI
+          <input type="file" id="midiFile" accept=".mid,.midi">
+        </label>
+
+        <select id="sampleSelect">
+          <option value="samples/hihat1.wav">Hi-Hat 1 — Clean</option>
+          <option value="samples/hihat2.wav">Hi-Hat 2 — Bright</option>
+          <option value="samples/hihat3.wav">Hi-Hat 3 — Trap</option>
+          <option value="samples/hihat4.wav">Hi-Hat 4 — Short</option>
+        </select>
+
+        <select id="rollType">
+          <option value="roll">Roll normal</option>
+          <option value="triplet">Triplet</option>
+          <option value="stutter">Stutter</option>
+          <option value="bounce">Bounce</option>
+        </select>
+
+        <label class="complexity-label">
+          Complejidad
+          <input type="range" id="complexitySlider" min="1" max="5" value="3">
+          <span id="complexityValue">3</span>
+        </label>
+
+        <button id="generateBtn" disabled>Generar Rolls</button>
+        <button id="exportBtn" disabled>Exportar MIDI</button>
+
+        <button id="playBtn" class="icon-btn" disabled title="Reproducir">▶</button>
+        <button id="stopBtn" class="icon-btn" disabled title="Parar">■</button>
+      </div>
+
+      <h2>Piano Roll detectado</h2>
+
+      <div class="piano-roll-container">
+        <div class="piano-label">Hi-Hat</div>
+        <div id="pianoRoll" class="piano-roll">
+          <div id="playhead" class="playhead"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/tone@latest/build/Tone.js"></script>
+  <script src="https://unpkg.com/@tonejs/midi"></script>
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>
